@@ -1,6 +1,6 @@
 #%%
 
-#from __future__ import print_function
+
 import collections
 import os
 import tensorflow as tf
@@ -132,7 +132,7 @@ optimizer = Adam()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['categorical_accuracy'])
 
 print(model.summary())
-#%%
+#
 #run_opt = 1 to train = 2 to evaluate 
 run_opt= 1
 checkpointer = ModelCheckpoint(filepath=data_path + '/model-{epoch:02d}.hdf5', verbose=1)
@@ -150,7 +150,7 @@ if run_opt == 1:
     model.save(data_path + "final_model.hdf5")
        
 elif run_opt == 2:
-    model = load_model(data_path + "\model-40.hdf5")
+    model = load_model(data_path + "\model-37.hdf5")
     dummy_iters = 40
     example_training_generator = KerasBatchGenerator(train_data, num_steps, 1, vocabulary,
                                                      skip_step=1)
